@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	 <header>
+        <div class="col-2"><img src="img/Veterinaria.png" alt="logo" class="logo"></div>
+        <div class="col-10"></div>
+    </header>
+
+    <nav>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-6"><a th:href="@{/peet}"><h3 class="linkNav">Agregar mascota</h3></a></div>
+                <div class="col-6"><a th:href="@{/booking}"><h3 class="linkNav">Registrar Cita</h3></a></div>
+            </div>
+        </div>
+    </nav>
+    
+	<div class="container">
+	
+	<h1 class="mb-5">Gestion de Pacientes</h1>
+
+		<p><a th:href="@{/save}" class="btnCrear">Crear Hoja de vida</a></p>
+		<p><a class="btnCrear2" th:href="@{peet/?format=pdf}">Listado PDF</a></p>
+		<table class="table table-striped">
+			<thead class="bg">
+				<tr>
+					<th>Nombre</th>
+					<th>Familia</th>
+					<th>Edad</th>
+					<th>Dueño</th>
+					<th>Celular</th>
+					<th>Direccion</th>
+					<th>Hoja de vida</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Peet: ${peet}">
+					<td th:text="${Peet.nombre}"></td>
+					<td th:text="${Peet.familia}"></td>
+					<td th:text="${Peet.edad}"></td>
+					<td th:text="${Peet.dueno}"></td>
+					<td th:text="${Peet.celular}"></td>
+					<td th:text="${Peet.direccion}"></td>
+					<td><a class="btnCrear" th:href="@{/search/} + ${Peet.id}" th:text="'Entrar'"></a></td>
+					<td><a class="btnCrear2" th:href="@{/update/} + ${Peet.id}" th:text="'Editar'"></a></td>
+					<td><a class="btnCrear" th:href="@{/delete/} + ${Peet.id}" th:text="'Eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	
+	<footer>
+        <h4>Diseñado por: <a href="https://github.com/nicolaxortiz" class="myProfile">Nicolas Ortiz Pedraza</a></h4>
+        <h4>2022</h4>
+    </footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

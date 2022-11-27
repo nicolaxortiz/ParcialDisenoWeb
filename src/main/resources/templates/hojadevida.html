@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<header>
+        <div class="col-2"><img th:src="@{/img/Veterinaria.png}" alt="logo" class="logo"></div>
+        <div class="col-10"></div>
+    </header>
+
+    <nav>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-6"><a th:href="@{/peet}"><h3 class="linkNav">Agregar mascota</h3></a></div>
+                <div class="col-6"><a th:href="@{/booking}"><h3 class="linkNav">Registrar Cita</h3></a></div>
+            </div>
+        </div>
+    </nav>
+
+	<main>
+
+        <h1>Hoja de vida</h1>
+        <h2 th:text="${searchPeet.getNombre()}"></h2>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center"><img th:src="${'/images/' + searchPeet.getFoto()}" alt="fotoHojadeVida" class="fotoHojadeVida"></div>
+          </div>
+
+          <div class="row text-center mt-4">
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Nombre:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getNombre()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Familia:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getFamilia()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Edad:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getEdad() + ' Años'}"></h4></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row text-center my-5">
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Dueño:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getDueno()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Celular:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getCelular()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12"><h4>Direccion:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${searchPeet.getDireccion()}"></h4></div>
+              </div>
+            </div>
+          </div>
+          
+          <h2 class="mb-4">--- Historial medico ---</h2>
+          
+          <div class="row text-center my-3" th:each="item: ${listBooking}">
+            <div class="col-3">
+              <div class="row">
+                <div class="col-12"><h4>Fecha:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${item.getFecha()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="row">
+                <div class="col-12"><h4>Doctor:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${item.getDoctor()}"></h4></div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="row">
+                <div class="col-12"><h4>Tipo:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${item.getTipo()}"></h4></div>
+              </div>
+            </div>
+            
+            <div class="col-3">
+              <div class="row">
+                <div class="col-12"><h4>Detalles:</h4></div>
+              </div>
+
+              <div class="row">
+                <div class="col-12"><h4 class="h4Mini" th:text="${item.getDetalles()}"></h4></div>
+              </div>
+            </div>
+          </div>
+          
+          	
+        </div>
+    
+    </main>
+	
+	<footer>
+        <h4>Diseñado por: <a href="https://github.com/nicolaxortiz" class="myProfile">Nicolas Ortiz Pedraza</a></h4>
+        <h4>2022</h4>
+    </footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+<title>Crear cuenta</title>
+</head>
+<body>
+    <header>
+        <div class="col-2"><img src="img/Veterinaria.png" alt="logo" class="logo"></div>
+        <div class="col-10"></div>
+    </header>
+
+    <nav>
+        <div class="container-fluid">
+            <div class="row text-center py-4"> 
+            </div>
+        </div>
+    </nav>
+
+    <main>
+      <h1>Crear cuenta</h1>
+      
+      <div class="container centrar">
+        <div class="row">
+          <div class="col-4">
+            <div class="container cajaLogin">
+              <div class="row">
+                <div class="col-12">
+                  <form th:action="@{/formUser}" th:object="${user}" method="post">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Username</label>
+                      <input type="text" class="form-control" name="username" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" name="password" required>
+                    </div>
+                    
+                   <button type="submit" class="btnCrear">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-8 text-center"><img src="./img/gato.png"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+        <h4>Diseñado por: <a href="https://github.com/nicolaxortiz" class="myProfile">Nicolas Ortiz Pedraza</a></h4>
+        <h4>2022</h4>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
